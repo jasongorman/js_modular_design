@@ -1,8 +1,5 @@
 const assert = require('assert');
-
-function quote(length, width, pricePerSqMtr, roundUp) {
-    return 0;
-}
+const quote = require('../quote');
 
 describe("Carpet Quote", () => {
     it('is room area * price per sq m un-rounded', () => {
@@ -11,5 +8,13 @@ describe("Carpet Quote", () => {
         const pricePerSqMtr = 10.0;
         const roundUp = false;
         assert.equal(quote(length, width, pricePerSqMtr, roundUp), 1500.0)
-    })
+    });
+
+    it('is ceiling of room area * price per sq m rounded up', () => {
+        const length = 10.5;
+        const width = 15.5;
+        const pricePerSqMtr = 10.0;
+        const roundUp = true;
+        assert.equal(quote(length, width, pricePerSqMtr, roundUp), 1630.0)
+    });
 })
