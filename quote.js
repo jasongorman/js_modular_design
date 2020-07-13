@@ -1,10 +1,10 @@
 function quote(length, width, pricePerSqMtr, roundUp) {
-    let area = length * width;
+    let roomArea = length * width;
 
     if(roundUp)
-        area = Math.ceil(area);
+        roomArea = Math.ceil(roomArea);
 
-    return area * pricePerSqMtr;
+    return roomArea * pricePerSqMtr;
 }
 
 module.exports = quote;
